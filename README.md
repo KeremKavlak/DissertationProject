@@ -28,3 +28,5 @@
 </br>Counter Strike: Global Offensive:
 </br>button 1 - tapshoot (it will fire your weapon with controlled bursts with random timings)
 </br>button 2 - bunnyhop (it will bunnyhop for you - does not work as intended)
+
+</br> A demo of this project in action can be found here: https://www.youtube.com/watch?v=7Sln9_em_Lg
