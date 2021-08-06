@@ -1,0 +1,68 @@
+import processing.serial.*;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+Serial myPort;  // Create object from Serial class
+String val ="x";     // Data received from the serial port
+String fred ="w";
+int mode = 0;
+Robot r;
+final int SPACE = 32;
+final int A = 97;
+final int S = 115;
+
+void setup()
+{
+  // I know that the first port in the serial list on my mac
+  // is Serial.list()[0].
+  // On Windows machines, this generally opens COM1.
+  // Open whatever port is the one you're using.
+  String portName = Serial.list()[1]; //change the 0 to a 1 or 2 etc. to match your port
+  myPort = new Serial(this, portName, 9600);
+  try{
+    r = new Robot();
+  }catch(AWTException a){}
+}
+
+void draw()
+{
+  if ( myPort.available() > 0) 
+  {  // If data is available,
+   val = myPort.readStringUntil('\n');         // read it and store it in val
+   //println(val);
+  } 
+
+  //print(val);
+  //println("=from Arduino");
+  if (val !=null){
+    val = trim(val);
+    val = val.replace("\n", "");
+    //println("");
+  
+
+//  if (val.equals("btn1")==true) {
+//  myPort.clear(); 
+//    println("button one has been pressed");
+//  }
+//  else if (val.equals("btn2")==true) {
+//    myPort.clear(); 
+//    println("button two has been pressed");
+//  }
+//    else if (val.equals("btn3")==true) {
+//      myPort.clear(); 
+//      println("button three has been pressed");
+//  }
+//    else if (val.equals("btn4")==true) {
+//      myPort.clear(); 
+//      println("button four has been pressed");
+//  }
+//    else if (val.equals("btn5")==true) {
+//      myPort.clear(); 
+//      println("button five has been pressed");
+//  }
+//  else {
+  //println(val);
+//  }
+  }
+}
